@@ -1,15 +1,10 @@
-"""TBD Class that creates a database object"""
-
-class DB(object):
-    """TBD"""
-
 #import modules
 import sqlite3
 import os
 import re
 import csv
-import create_trial as ct
-import csv_data
+# import create_trial as ct
+# import csv_data
 import sys
 
 #Set default encoding as utf-8
@@ -280,7 +275,7 @@ class Database(object):
                         'intervention_type', item['type'])
 
                         moa_id = self.insert_2column_table('MoA',
-                        'moa', csv_data.get_moa(item['intervention']))
+                        'moa', "NULL")
 
                         #Insert intervention's name, intervention_type_id and MoA_id
                         #(placeholder for now) into Interventions table
@@ -554,5 +549,5 @@ class Database(object):
 # trial_db = DB('trial_db.sqlite3')
 # trial_db.create_db('trial')
 
-moa_db = DB('moa_db.sqlite3')
+moa_db = Database('moa_db.sqlite3')
 print moa_db.get_cur()
